@@ -1,5 +1,7 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
+import {FaSearch} from 'react-icons/fa'
+
 import {Link} from 'react-router-dom'
 
 import styled from 'styled-components'
@@ -80,4 +82,28 @@ export const LargeOptionItem = styled(MobileOptionItem)``
 
 export const LargeItem = styled(MobileItem)`
   font-size: 15px;
+`
+
+export const SearchBoxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: grey;
+  border-radius: 8px;
+`
+
+export const SearchBox = styled.input`
+  border-radius: 8px 0px 0px 8px;
+  padding: 10px;
+  outline: none;
+  border-style: none;
+`
+
+export const SearchIcon = styled(FaSearch)`
+  margin: 0px 12px;
+  color: white;
+`
+
+export const NoBorderButton = styled.button`
+  border-style: none;
+  background-color: transparent;
 `
