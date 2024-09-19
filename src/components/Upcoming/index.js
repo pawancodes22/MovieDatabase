@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react'
 
+import MovieDatabaseContext from '../../context/MovieDatabaseContext'
+
 import UpcomingMovieItem from '../UpcomingMovieItem'
 
 import './index.css'
@@ -27,13 +29,23 @@ const Upcoming = () => {
   }, [])
 
   return (
-    <div className="page-div-u">
-      <ul className="upcoming-movies-container-u">
-        {upcomingMovies.map(item => (
-          <UpcomingMovieItem item={item} key={item.id} />
-        ))}
-      </ul>
-    </div>
+    <MovieDatabaseContext.Consumer>
+      {value => {
+        const {currentSearchValue} = value
+        const newMovieItems = upcomingMovies.filter(item =>
+          item.title.toLowerCase().includes(currentSearchValue.toLowerCase()),
+        )
+        return (
+          <div className="page-div-u">
+            <ul className="upcoming-movies-container-u">
+              {newMovieItems.map(item => (
+                <UpcomingMovieItem item={item} key={item.id} />
+              ))}
+            </ul>
+          </div>
+        )
+      }}
+    </MovieDatabaseContext.Consumer>
   )
 }
 export default Upcoming

@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react'
 
+import MovieDatabaseContext from '../../context/MovieDatabaseContext'
+
 import TopRatedMovieItem from '../TopRatedMovieItem'
 
 import './index.css'
@@ -27,13 +29,23 @@ const TopRated = () => {
   }, [])
 
   return (
-    <div className="page-div-tr">
-      <div className="top-rated-movies-container-tr">
-        {topRatedMovies.map(item => (
-          <TopRatedMovieItem item={item} key={item.id} />
-        ))}
-      </div>
-    </div>
+    <MovieDatabaseContext.Consumer>
+      {value => {
+        const {currentSearchValue} = value
+        const newMovieItems = topRatedMovies.filter(item =>
+          item.title.toLowerCase().includes(currentSearchValue.toLowerCase()),
+        )
+        return (
+          <div className="page-div-tr">
+            <div className="top-rated-movies-container-tr">
+              {newMovieItems.map(item => (
+                <TopRatedMovieItem item={item} key={item.id} />
+              ))}
+            </div>
+          </div>
+        )
+      }}
+    </MovieDatabaseContext.Consumer>
   )
 }
 export default TopRated
