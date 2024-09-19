@@ -46,7 +46,7 @@ const Header = () => {
               >
                 <FontAwesomeIcon className="hamburger-icon" icon={faBars} />
               </button>
-              <ul className="mobile-options-container larger-options-container">
+              <ul className="mobile-options-container large-options-container">
                 <li className="large-option-item">
                   <Link className="large-item" to="/">
                     Popular

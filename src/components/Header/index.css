@@ -63,7 +63,7 @@
   padding: 0px;
   width: 230px;
   @media (min-width: 768px) {
-    display: inline;
+    display: flex;
   }
   @media (max-width: 767px) {
     display: none;
