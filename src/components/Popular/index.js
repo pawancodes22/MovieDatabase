@@ -30,9 +30,9 @@ const Popular = () => {
   return (
     <MovieDatabaseContext.Consumer>
       {value => {
-        const {searchValue} = value
+        const {currentSearchValue} = value
         const newMovieItems = popularMovies.filter(item =>
-          item.title.toLowerCase().includes(searchValue.toLowerCase()),
+          item.title.toLowerCase().includes(currentSearchValue.toLowerCase()),
         )
         return (
           <div className="page-div-popular">

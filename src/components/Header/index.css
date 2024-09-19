@@ -89,6 +89,7 @@
   align-items: center;
   background-color: grey;
   border-radius: 8px;
+  width: 240px;
 }
 
 .search-box {
@@ -106,4 +107,14 @@
 .no-border-button {
   border-style: none;
   background-color: transparent;
+}
+
+.large-scn-search-box {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.small-scn-search-box {
+  margin-bottom: 10px;
 }

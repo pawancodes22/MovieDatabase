@@ -22,21 +22,30 @@ const Header = () => {
   return (
     <MovieDatabaseContext.Consumer>
       {value => {
-        const {searchValue, changeSearchValue} = value
+        const {
+          searchValue,
+          changeSearchValue,
+          currentSearchValue,
+          changeCurrentSearchValue,
+        } = value
         return (
           <div className="main-container-header">
             <div className="div-container-header">
               <Link className="large-item" to="/">
                 <h1 className="heading-header">MovieDB</h1>
               </Link>
-              <div className="search-box-container">
+              <div className="search-box-container large-scn-search-box">
                 <input
                   className="search-box"
                   placeholder="Enter movie name"
                   value={searchValue}
                   onChange={changeSearchValue}
+                  type="search"
                 />
-                <button className="no-border-button">
+                <button
+                  className="no-border-button"
+                  onClick={changeCurrentSearchValue}
+                >
                   <FaSearch className="search-icon" />
                 </button>
               </div>
@@ -68,19 +77,36 @@ const Header = () => {
             {showHamburgerMenu && (
               <ul className="mobile-options-container">
                 <li className="mobile-option-item">
-                  <Link className="mobile-item-header" to="/">
+                  <div className="search-box-container small-scn-search-box">
+                    <input
+                      className="search-box"
+                      placeholder="Enter movie name"
+                      value={searchValue}
+                      onChange={changeSearchValue}
+                      type="search"
+                    />
+                    <button
+                      className="no-border-button"
+                      onClick={changeCurrentSearchValue}
+                    >
+                      <FaSearch className="search-icon" />
+                    </button>
+                  </div>
+                </li>
+                <li className="mobile-option-item">
+                  <Link className="link-item-header" to="/">
                     Popular
                   </Link>
                   <hr className="horizontal-line-header" />
                 </li>
                 <li className="mobile-option-item">
-                  <Link className="mobile-item-header" to="/top-rated">
+                  <Link className="link-item-header" to="/top-rated">
                     Top Rated
                   </Link>
                   <hr className="horizontal-line-header" />
                 </li>
                 <li className="mobile-option-item">
-                  <Link className="mobile-item-header" to="/upcoming">
+                  <Link className="link-item-header" to="/upcoming">
                     Upcoming
                   </Link>
                   <hr className="horizontal-line-header" />

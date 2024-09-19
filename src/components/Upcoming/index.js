@@ -28,7 +28,7 @@ const Upcoming = () => {
 
   return (
     <div className="page-div-u">
-      <ul className="upcoming-movies-container">
+      <ul className="upcoming-movies-container-u">
         {upcomingMovies.map(item => (
           <UpcomingMovieItem item={item} key={item.id} />
         ))}
