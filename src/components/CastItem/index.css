@@ -1,24 +1,22 @@
-import styled from 'styled-components'
-
-export const CastItemContainer = styled.li`
+.cast-item-container {
   list-style-type: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 120px;
   margin: 0px 15px 15px 0px;
-`
+}
 
-export const CastImage = styled.img`
+.cast-image {
   width: 100%;
-`
+}
 
-export const MainName = styled.p`
+.main-name-ci {
   margin: 0px;
   font-size: 14px;
   font-family: 'Bree Serif';
-`
+}
 
-export const CharacterName = styled(MainName)`
+.character-name-ci {
   color: grey;
-`
+}

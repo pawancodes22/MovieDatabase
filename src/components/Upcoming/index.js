@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 
 import UpcomingMovieItem from '../UpcomingMovieItem'
 
-import {PageDiv, UpcomingMoviesContainer} from './styledComponents'
+import './index.css'
 
 const Upcoming = () => {
   const [upcomingMovies, setUpcomingMoviesData] = useState([])
@@ -27,13 +27,13 @@ const Upcoming = () => {
   }, [])
 
   return (
-    <PageDiv>
-      <UpcomingMoviesContainer>
+    <div className="page-div-u">
+      <ul className="upcoming-movies-container">
         {upcomingMovies.map(item => (
           <UpcomingMovieItem item={item} key={item.id} />
         ))}
-      </UpcomingMoviesContainer>
-    </PageDiv>
+      </ul>
+    </div>
   )
 }
 export default Upcoming

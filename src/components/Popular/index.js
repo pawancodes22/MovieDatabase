@@ -4,15 +4,15 @@ import PopularMovieItem from '../PopularMovieItem'
 
 import MovieDatabaseContext from '../../context/MovieDatabaseContext'
 
-import {PageDiv, PopularMoviesContainer} from './styledComponents'
+import './index.css'
 
 const Popular = () => {
   const [popularMovies, setPopularMoviesData] = useState([])
-  const popularMoviesApiUrl =
+  const getPopularMoviesURL =
     'https://api.themoviedb.org/3/movie/popular?api_key=a2c9b2e6e94158353df482647afdbe9e&language=en-US&page=1'
 
   const fetchApi = async () => {
-    const response = await fetch(popularMoviesApiUrl)
+    const response = await fetch(getPopularMoviesURL)
     const jsonResponse = await response.json()
     const rearrangedResponse = jsonResponse.results.map(item => ({
       imageUrl: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
@@ -35,13 +35,13 @@ const Popular = () => {
           item.title.toLowerCase().includes(searchValue.toLowerCase()),
         )
         return (
-          <PageDiv>
-            <PopularMoviesContainer>
+          <div className="page-div-popular">
+            <ul className="popular-movies-container">
               {newMovieItems.map(item => (
                 <PopularMovieItem item={item} key={item.id} />
               ))}
-            </PopularMoviesContainer>
-          </PageDiv>
+            </ul>
+          </div>
         )
       }}
     </MovieDatabaseContext.Consumer>

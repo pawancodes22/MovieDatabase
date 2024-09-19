@@ -1,14 +1,8 @@
 import {withRouter} from 'react-router-dom'
 
-import {
-  MovieItem,
-  MovieImage,
-  MovieHeading,
-  StarImage,
-  RatingContainer,
-  ViewDetails,
-  ContentContainer,
-} from './styledComponents'
+import {MdOutlineStar} from 'react-icons/md'
+
+import './index.css'
 
 const UpcomingMovieItem = props => {
   const {item} = props
@@ -18,17 +12,19 @@ const UpcomingMovieItem = props => {
     history.replace(`movies/${id}`)
   }
   return (
-    <MovieItem>
-      <MovieImage src={imageUrl} alt={`${title} image`} />
-      <ContentContainer>
-        <MovieHeading>{title}</MovieHeading>
-        <RatingContainer>
-          <StarImage />
-          <MovieHeading>{rating}</MovieHeading>
-        </RatingContainer>
-        <ViewDetails onClick={showDetails}>View Details</ViewDetails>
-      </ContentContainer>
-    </MovieItem>
+    <li className="movie-item-u">
+      <img className="movie-image-u" src={imageUrl} alt={`${title}`} />
+      <div className="content-container-u">
+        <p className="movie-heading-u">{title}</p>
+        <div className="rating-container-u">
+          <MdOutlineStar className="star-image-u" />
+          <p className="movie-heading-u">{rating}</p>
+        </div>
+        <button className="view-details-u" onClick={showDetails}>
+          View Details
+        </button>
+      </div>
+    </li>
   )
 }
 export default withRouter(UpcomingMovieItem)

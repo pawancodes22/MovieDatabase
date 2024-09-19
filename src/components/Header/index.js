@@ -1,27 +1,16 @@
 import {faBars} from '@fortawesome/free-solid-svg-icons'
 
+import {FaSearch} from 'react-icons/fa'
+
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+
 import {useState} from 'react'
+
+import {Link} from 'react-router-dom'
 
 import MovieDatabaseContext from '../../context/MovieDatabaseContext'
 
-import {
-  MainContainer,
-  DivContainer,
-  Heading,
-  HamburgerIcon,
-  MobileOptionsContainer,
-  MobileOptionItem,
-  MobileItem,
-  BasicButton,
-  HorizontalLine,
-  LargeOptionsContainer,
-  LargeOptionItem,
-  LargeItem,
-  SearchBoxContainer,
-  SearchBox,
-  SearchIcon,
-  NoBorderButton,
-} from './styledComponents'
+import './index.css'
 
 const Header = () => {
   const [showHamburgerMenu, setVisibility] = useState(false)
@@ -35,54 +24,70 @@ const Header = () => {
       {value => {
         const {searchValue, changeSearchValue} = value
         return (
-          <MainContainer>
-            <DivContainer>
-              <LargeItem to="/">
-                <Heading>MovieDB</Heading>
-              </LargeItem>
-              <SearchBoxContainer>
-                <SearchBox
+          <div className="main-container-header">
+            <div className="div-container-header">
+              <Link className="large-item" to="/">
+                <h1 className="heading-header">MovieDB</h1>
+              </Link>
+              <div className="search-box-container">
+                <input
+                  className="search-box"
                   placeholder="Enter movie name"
                   value={searchValue}
                   onChange={changeSearchValue}
                 />
-                <NoBorderButton>
-                  <SearchIcon />
-                </NoBorderButton>
-              </SearchBoxContainer>
-              <BasicButton onClick={changeVisibility}>
-                <HamburgerIcon icon={faBars} />
-              </BasicButton>
-              <LargeOptionsContainer>
-                <LargeOptionItem>
-                  <LargeItem to="/">Popular</LargeItem>
-                </LargeOptionItem>
-                <LargeOptionItem>
-                  <LargeItem to="/top-rated">Top Rated</LargeItem>
-                </LargeOptionItem>
-                <LargeOptionItem>
-                  <LargeItem to="/upcoming">Upcoming</LargeItem>
-                </LargeOptionItem>
-              </LargeOptionsContainer>
-            </DivContainer>
+                <button className="no-border-button">
+                  <FaSearch className="search-icon" />
+                </button>
+              </div>
+              <button
+                className="basic-button-header"
+                onClick={changeVisibility}
+              >
+                <FontAwesomeIcon className="hamburger-icon" icon={faBars} />
+              </button>
+              <ul className="mobile-options-container larger-options-container">
+                <li className="large-option-item">
+                  <Link className="large-item" to="/">
+                    Popular
+                  </Link>
+                </li>
+                <li className="large-option-item">
+                  <Link className="large-item" to="/top-rated">
+                    Top Rated
+                  </Link>
+                </li>
+                <li className="large-option-item">
+                  <Link className="large-item" to="/upcoming">
+                    Upcoming
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
             {showHamburgerMenu && (
-              <MobileOptionsContainer>
-                <MobileOptionItem>
-                  <MobileItem to="/">Popular</MobileItem>
-                  <HorizontalLine />
-                </MobileOptionItem>
-                <MobileOptionItem>
-                  <MobileItem to="/top-rated">Top Rated</MobileItem>
-                  <HorizontalLine />
-                </MobileOptionItem>
-                <MobileOptionItem>
-                  <MobileItem to="/upcoming">Upcoming</MobileItem>
-                  <HorizontalLine />
-                </MobileOptionItem>
-              </MobileOptionsContainer>
+              <ul className="mobile-options-container">
+                <li className="mobile-option-item">
+                  <Link className="mobile-item-header" to="/">
+                    Popular
+                  </Link>
+                  <hr className="horizontal-line-header" />
+                </li>
+                <li className="mobile-option-item">
+                  <Link className="mobile-item-header" to="/top-rated">
+                    Top Rated
+                  </Link>
+                  <hr className="horizontal-line-header" />
+                </li>
+                <li className="mobile-option-item">
+                  <Link className="mobile-item-header" to="/upcoming">
+                    Upcoming
+                  </Link>
+                  <hr className="horizontal-line-header" />
+                </li>
+              </ul>
             )}
-          </MainContainer>
+          </div>
         )
       }}
     </MovieDatabaseContext.Consumer>

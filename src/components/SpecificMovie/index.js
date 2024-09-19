@@ -4,21 +4,7 @@ import {Triangle} from 'react-loader-spinner'
 
 import CastItem from '../CastItem'
 
-import {
-  PageDiv,
-  MainHeading,
-  MovieDetailsContainer,
-  MovieImage,
-  MovieContent,
-  MovieName,
-  OtherMovieItem,
-  ContentHeading,
-  GenreItem,
-  ContentContainer,
-  GenreValuesContainer,
-  BufferContainer,
-  CastContainer,
-} from './styledComponents'
+import './index.css'
 
 const SpecificMovie = props => {
   const {match} = props
@@ -74,45 +60,51 @@ const SpecificMovie = props => {
   }, [])
 
   const displayData = () => (
-    <PageDiv>
-      <MainHeading>Movie Details:</MainHeading>
-      <MovieDetailsContainer>
-        <MovieImage src={movieDetails.imageUrl} alt="movie" />
-        <MovieContent>
-          <MovieName>{movieDetails.title}</MovieName>
-          <ContentContainer>
-            <ContentHeading>Genres:</ContentHeading>
-            <GenreValuesContainer>
+    <div className="page-div-spm">
+      <h1 className="main-heading-spm">Movie Details:</h1>
+      <div className="movie-details-container-spm">
+        <img
+          className="movie-image-spm"
+          src={movieDetails.imageUrl}
+          alt="movie"
+        />
+        <div className="movie-content-spm">
+          <p className="movie-name-spm">{movieDetails.title}</p>
+          <div className="content-container-spm">
+            <p className="content-heading-spm">Genres:</p>
+            <ul className="genre-values-container-spm">
               {movieDetails.genres.map(item => (
-                <GenreItem key={item.id}>{item.name}</GenreItem>
+                <span className="genre-item-spm" key={item.id}>
+                  {item.name}
+                </span>
               ))}
-            </GenreValuesContainer>
-          </ContentContainer>
-          <ContentContainer>
-            <ContentHeading>Duration:</ContentHeading>
-            <OtherMovieItem>{movieDetails.duration} mins</OtherMovieItem>
-          </ContentContainer>
-          <ContentContainer>
-            <ContentHeading>Release Year:</ContentHeading>
-            <OtherMovieItem>{movieDetails.releaseYear}</OtherMovieItem>
-          </ContentContainer>
-          <ContentContainer>
-            <ContentHeading>Rating:</ContentHeading>
-            <OtherMovieItem>{movieDetails.rating}</OtherMovieItem>
-          </ContentContainer>
-        </MovieContent>
-      </MovieDetailsContainer>
-      <MainHeading>Cast Details:</MainHeading>
-      <CastContainer>
+            </ul>
+          </div>
+          <div className="content-container-spm">
+            <p className="content-heading-spm">Duration:</p>
+            <p className="other-movie-item-spm">{movieDetails.duration} mins</p>
+          </div>
+          <div className="content-container-spm">
+            <p className="content-heading-spm">Release Year:</p>
+            <p className="other-movie-item-spm">{movieDetails.releaseYear}</p>
+          </div>
+          <div className="content-container-spm">
+            <p className="content-heading-spm">Rating:</p>
+            <p className="other-movie-item-spm">{movieDetails.rating}</p>
+          </div>
+        </div>
+      </div>
+      <h1 className="main-heading-spm">Cast Details:</h1>
+      <ul className="cast-container-spm">
         {castDetails.map(item => (
           <CastItem key={item.id} item={item} />
         ))}
-      </CastContainer>
-    </PageDiv>
+      </ul>
+    </div>
   )
 
   const displayLoader = () => (
-    <BufferContainer>
+    <div className="buffer-container-spm">
       <Triangle
         height="80"
         width="80"
@@ -121,7 +113,7 @@ const SpecificMovie = props => {
         wrapperStyle={{}}
         wrapperClass=""
       />
-    </BufferContainer>
+    </div>
   )
 
   return apiStatus ? displayData() : displayLoader()

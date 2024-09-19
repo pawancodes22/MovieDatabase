@@ -1,109 +1,109 @@
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-
-import {FaSearch} from 'react-icons/fa'
-
-import {Link} from 'react-router-dom'
-
-import styled from 'styled-components'
-
-export const DivContainer = styled.div`
+.div-container-header {
   padding: 15px;
   font-family: 'Roboto';
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
+}
 
-export const BasicButton = styled.button`
+.basic-button-header {
   background-color: transparent;
   border-style: none;
   @media (min-width: 768px) {
     display: none;
   }
-`
+}
 
-export const HamburgerIcon = styled(FontAwesomeIcon)`
+.hamburger-icon {
   color: white;
   font-size: 20px;
-`
+}
 
-export const Heading = styled.h1`
+.heading-header {
   margin: 0px;
   padding: 0px;
   color: white;
   font-family: 'Bree Serif';
   font-size: 20px;
-`
+}
 
-export const MainContainer = styled.div`
+.main-container-header {
   background-color: #963bc4;
-`
+}
 
-export const MobileOptionsContainer = styled.ul`
+.mobile-options-container {
   padding: 0 15px 15px 15px;
   margin: 0px;
   @media (min-width: 768px) {
     display: none;
   }
-`
+}
 
-export const MobileOptionItem = styled.li`
+.mobile-option-item {
   list-style-type: none;
   margin-bottom: 0px;
-`
+}
 
-export const MobileItem = styled(Link)`
+.horizontal-line-header {
+  margin: 5px 0px 5px 0px;
+}
+
+.link-item-header {
   color: white;
   text-decoration: none;
   font-family: 'Roboto';
   font-weight: bold;
   font-size: 12px;
   padding: 0px 0px 0px 5px;
-`
+}
 
-export const HorizontalLine = styled.hr`
-  margin: 5px 0px 5px 0px;
-`
-
-export const LargeOptionsContainer = styled(MobileOptionsContainer)`
+.large-options-container {
   display: flex;
   justify-content: space-between;
   padding: 0px;
   width: 230px;
-  media (min-width: 768px) {
+  @media (min-width: 768px) {
     display: inline;
   }
   @media (max-width: 767px) {
     display: none;
   }
-`
+}
 
-export const LargeOptionItem = styled(MobileOptionItem)``
+.large-option-item {
+  list-style-type: none;
+  margin-bottom: 0px;
+}
 
-export const LargeItem = styled(MobileItem)`
+.large-item {
+  color: white;
+  text-decoration: none;
+  font-family: 'Roboto';
+  font-weight: bold;
   font-size: 15px;
-`
+  padding: 0px 0px 0px 5px;
+}
 
-export const SearchBoxContainer = styled.div`
+.search-box-container {
   display: flex;
   align-items: center;
   background-color: grey;
   border-radius: 8px;
-`
+}
 
-export const SearchBox = styled.input`
+.search-box {
   border-radius: 8px 0px 0px 8px;
   padding: 10px;
   outline: none;
   border-style: none;
-`
+}
 
-export const SearchIcon = styled(FaSearch)`
+.search-icon {
   margin: 0px 12px;
   color: white;
-`
+}
 
-export const NoBorderButton = styled.button`
+.no-border-button {
   border-style: none;
   background-color: transparent;
-`
+}

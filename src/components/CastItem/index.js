@@ -1,19 +1,14 @@
-import {
-  CastItemContainer,
-  CastImage,
-  CharacterName,
-  MainName,
-} from './styledComponents'
+import './index.css'
 
 const CastItem = props => {
   const {item} = props
   const {imageUrl, originalName, characterName} = item
   return (
-    <CastItemContainer>
-      <CastImage src={imageUrl} alt={`${originalName}`} />
-      <MainName>{originalName}</MainName>
-      <CharacterName>as {characterName}</CharacterName>
-    </CastItemContainer>
+    <li className="cast-item-container">
+      <img className="cast-image" src={imageUrl} alt={`${originalName}`} />
+      <p className="main-name-ci">{originalName}</p>
+      <p className="main-name-ci character-name-ci">as {characterName}</p>
+    </li>
   )
 }
 

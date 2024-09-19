@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 
 import TopRatedMovieItem from '../TopRatedMovieItem'
 
-import {PageDiv, TopRatedMoviesContainer} from './styledComponents'
+import './index.css'
 
 const TopRated = () => {
   const [topRatedMovies, setTopRatedMoviesData] = useState([])
@@ -27,13 +27,13 @@ const TopRated = () => {
   }, [])
 
   return (
-    <PageDiv>
-      <TopRatedMoviesContainer>
+    <div className="page-div-tr">
+      <div className="top-rated-movies-container-tr">
         {topRatedMovies.map(item => (
           <TopRatedMovieItem item={item} key={item.id} />
         ))}
-      </TopRatedMoviesContainer>
-    </PageDiv>
+      </div>
+    </div>
   )
 }
 export default TopRated
